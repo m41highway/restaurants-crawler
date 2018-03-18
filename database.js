@@ -21,7 +21,14 @@ const saveRestaurantsCountPerPage = function (connection, district, restaurantPe
  })
 }
 
+const readAllRestaurantsCountPerPage = function (connection) {
+ connection.ref('district/').on('value', function (snapshot){
+  console.log(snapshot.val())
+ })
+}
+
 module.exports = {
  connect,
- saveRestaurantsCountPerPage
+ saveRestaurantsCountPerPage,
+ readAllRestaurantsCountPerPage
 }
