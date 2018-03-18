@@ -23,7 +23,31 @@ Firebase
 4. submit job client (count-restaurant-per-page.js)
 
 
-Step to run:
+## Step to run:
+### Find the number of restaurant per page
 1. start the queue server
 
-2. submit the counting job
+```
+node ./restaurant-per-page/index.js
+```
+
+2. submit the counting jobs
+
+```
+node ./restaurant-per-page/count-restaurants-per-page.js
+```
+
+Result is saved in Firebase
+
+### Solve the page count per district
+1. start the queue server
+
+```
+node ./pages-per-district/index.js
+```
+
+2. sumbit the jobs
+
+```
+node ./pages-per-district/solve-page-count-per-district.js
+```

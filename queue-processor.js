@@ -20,6 +20,7 @@ const start = function(concurrentJob, logic) {
 
  queue.on('succeeded', (job, result) => {
   console.log(`Job ${job.id} - ${job.data.district} succeeded with result: ${result.restaurantCount} ${dateFormat(new Date(), "dddd, mmmm dS, yyyy, h:MM:ss TT")}`);
+  console.log(result)
  })
 
  queue.on('retrying', (job, err) => {
@@ -34,8 +35,6 @@ const start = function(concurrentJob, logic) {
   console.log(`Job ${jobId} - ${job.data.district} stalled and will be reprocessed ${dateFormat(new Date(), "dddd, mmmm dS, yyyy, h:MM:ss TT")}`);
  })
 }
-
-
 
 module.exports = {
  start: start

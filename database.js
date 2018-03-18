@@ -21,14 +21,21 @@ const saveRestaurantsCountPerPage = function (connection, district, restaurantPe
  })
 }
 
-const readAllRestaurantsCountPerPage = function (connection) {
- connection.ref('district/').on('value', function (snapshot){
-  console.log(snapshot.val())
+const readAllRestaurantsCountPerPage = async function(connection) {
+ let result = await connection.ref('district/').once('value')
+ .then(res => {
+  return res.val()
  })
+ return result
+}
+
+const updatePageCountPerDistrict = function (connection, district, pageCount) {
+ connection.ref('district/' + district ).update({'pageCount': pageCount})
 }
 
 module.exports = {
  connect,
  saveRestaurantsCountPerPage,
- readAllRestaurantsCountPerPage
+ readAllRestaurantsCountPerPage,
+ updatePageCountPerDistrict
 }
